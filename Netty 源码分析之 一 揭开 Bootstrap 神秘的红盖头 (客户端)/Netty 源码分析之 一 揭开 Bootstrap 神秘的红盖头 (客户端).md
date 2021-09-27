@@ -48,8 +48,7 @@ try {
 ### NioSocketChannel 的初始化过程
 在 Netty 中, Channel 是一个 Socket 的抽象, 它为用户提供了关于 Socket 状态(是否是连接还是断开) 以及对 Socket 的读写等操作. 每当 Netty 建立了一个连接后, 都会有一个对应的 Channel 实例.
 NioSocketChannel 的类层次结构如下:
-![Alt text](./NioSocketChannel 类层次结构.png)
-
+![Alt text](./NioSocketChannel类层次结构.png)
 
 这一小节我们着重分析一下 Channel 的初始化过程.
 #### ChannelFactory 和 Channel 类型的确定
@@ -232,7 +231,7 @@ TailContext 的构造器与 HeadContext 的相反, 它调用了父类 AbstractCh
 ### 关于 EventLoop 初始化
 回到最开始的 EchoClient.java 代码中, 我们在一开始就实例化了一个 NioEventLoopGroup 对象, 因此我们就从它的构造器中追踪一下 EventLoop 的初始化过程.
 首先来看一下 NioEventLoopGroup 的类继承层次:
-![Alt text](./NioEventLoopGroup 类层次结构.png)
+![Alt text](./NioEventLoopGroup类层次结构.png)
 
 NioEventLoop 有几个重载的构造器, 不过内容都没有什么区别, 最终都是调用的父类MultithreadEventLoopGroup构造器:
 ```
